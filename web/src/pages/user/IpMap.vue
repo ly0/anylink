@@ -38,19 +38,7 @@
                         label="IP地址">
                 </el-table-column>
 
-                <el-table-column
-                        prop="mac_addr"
-                        label="MAC地址">
-                </el-table-column>
 
-                <el-table-column
-                        prop="unique_mac"
-                        label="唯一MAC">
-                    <template slot-scope="scope">
-                        <el-tag v-if="scope.row.unique_mac" type="success">是</el-tag>
-                        <el-tag v-else type="info">否</el-tag>
-                    </template>
-                </el-table-column>
 
                 <el-table-column
                         prop="username"
@@ -192,7 +180,7 @@ export default {
                     {max: 50, message: '长度小于 50 个字符', trigger: 'blur'}
                 ],
                 mac_addr: [
-                    {required: true, message: '请输入mac地址', trigger: 'blur'}
+                    {required: false, message: '请输入mac地址', trigger: 'blur'}
                 ],
                 ip_addr: [
                     {required: true, message: '请输入ip地址', trigger: 'blur'}
