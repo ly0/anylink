@@ -115,15 +115,15 @@ func AcquireIp(username, macAddr string, uniqueMac bool) (newIp net.IP) {
 				continue
 			}
 
-			if utils.Ip2long(ip) >= IpPool.IpLongMin &&
-				utils.Ip2long(ip) <= IpPool.IpLongMax {
-				mi.LastLogin = tNow
-				mi.MacAddr = macAddr // 更新最新的 MAC 地址
-				// 回写db数据
-				_ = dbdata.Set(mi)
-				ipActive[ipStr] = true
-				return ip
-			}
+			// if utils.Ip2long(ip) >= IpPool.IpLongMin &&
+			// utils.Ip2long(ip) <= IpPool.IpLongMax {
+			mi.LastLogin = tNow
+			mi.MacAddr = macAddr // 更新最新的 MAC 地址
+			// 回写db数据
+			_ = dbdata.Set(mi)
+			ipActive[ipStr] = true
+			return ip
+			// }
 		}
 	}
 
